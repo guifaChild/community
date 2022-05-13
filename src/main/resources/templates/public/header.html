@@ -1,0 +1,83 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <th:block th:fragment="head">
+  <div class="header">
+    <div class="main">
+      <a class="logo" href="/" title="Fly">Happys社区</a>
+      <div class="nav">
+        <a href="/">
+          <i class="layui-icon">&#xe68e;</i>主页
+        </a>
+        <a href="#">
+          <i class="layui-icon">&#xe705;</i>文章
+        </a>
+        <a class="nav-this" href="jie/index.html">
+          <i class="iconfont icon-wenda"></i>问答
+        </a>
+        <a href="#">
+          <i class="layui-icon">&#xe7ae;</i>前沿资讯
+        </a>
+        <a href="#">
+          <i class="layui-icon">&#xe65e;</i>赚钱之路
+        </a>
+
+      </div>
+
+      <div class="nav-user">
+        <!-- 未登入状态 -->
+        <th:block th:if="${session.user == null}">
+        <a class="unlogin" href="/loginHtml"><i class="iconfont icon-touxiang"></i></a>
+        <span><a href="/loginHtml">登入</a><a href="/regHtml">注册</a></span>
+        <p class="out-login">
+          <a href="" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-qq" title="QQ登入"></a>
+          <a href="" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-weibo" title="微博登入"></a>
+        </p>
+        </th:block>
+
+        <th:block th:if="${session.user != null}">
+
+          <a class="avatar" href="/">
+            <img src="http://tp4.sinaimg.cn/1345566427/180/5730976522/0">
+            <cite>贤心</cite>
+<!--            <i>VIP2</i>-->
+          </a>
+          <div class="nav">
+            <a href="/user/set"><i class="iconfont icon-shezhi"></i>设置</a>
+            <a href="/user/logout"><i class="iconfont icon-tuichu" style="top: 0; font-size: 22px;"></i>退了</a>
+          </div>
+        </th:block>
+
+      </div>
+    </div>
+  </div>
+  </th:block>
+
+  <th:block th:fragment="jie">
+    <div class="fly-tab fly-tab-index">
+        <span>
+          <a href="/jie/index">全部</a>
+          <a href="/jie/index">未结帖</a>
+          <a href="/jie/index">已采纳</a>
+          <a href="/jie/index">精帖</a>
+          <a href="user/index.html">我的帖</a>
+        </span>
+      <form action="http://cn.bing.com/search" class="fly-search">
+        <i class="iconfont icon-sousuo"></i>
+        <input class="layui-input" autocomplete="off" placeholder="搜索内容，回车跳转" type="text" name="q">
+      </form>
+      <a href="jie/add.html" class="layui-btn jie-add">发布问题</a>
+    </div>
+  </th:block>
+  <!-- 登入后的状态 -->
+  <!--
+  <a class="avatar" href="user/index.html">
+    <img src="http://tp4.sinaimg.cn/1345566427/180/5730976522/0">
+    <cite>贤心</cite>
+    <i>VIP2</i>
+  </a>
+  <div class="nav">
+    <a href="/user/set/"><i class="iconfont icon-shezhi"></i>设置</a>
+    <a href="/user/logout/"><i class="iconfont icon-tuichu" style="top: 0; font-size: 22px;"></i>退了</a>
+  </div> -->
+
+
